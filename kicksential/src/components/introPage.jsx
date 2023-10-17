@@ -42,15 +42,15 @@ const Intro = () => {
     return (
         <section className="flex flex-col h-screen">
             <nav className="flex justify-between">
-                <h1 className="text-black text-4xl font-bold m-3 p-2">KICKSENTIAL.</h1>
-                <button className="bg-gray-500 text-black rounded m-3 p-2">Login/signup</button>
+                <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+                <button className="bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2">Login/signup</button>
             </nav>
 
             <div className="flex w-full group">
                 <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 realtive'>
                     <div style={{backgroundImage: `url(${slides[currIndex].url})`}} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
                     {/* left arrow */}
-                    <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 -translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                    <div className="hidden group-hover:block group-hover:duration-500 absolute top-[50%] -translate-x-0 -translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
                         <BsChevronCompactLeft onClick={prevSlide} size={30}/>
                     </div>
                         {/* right arrow */}
