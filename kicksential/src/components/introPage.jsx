@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Jordan1 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/Jordan1poster.webp";
 import Jordan4 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/jordan4.jpeg";
 import Yeezy from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/yeezy.png";
