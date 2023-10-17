@@ -5,7 +5,10 @@ function App() {
   return (
     <div className='flex'>
       <Filter/>
-<h1>Main container</h1>
+      <div className='flex flex-col w-full h-screen bg-red-500'>
+        <h1>Main container</h1>
+      </div>
+
     </div>
   );
 }
