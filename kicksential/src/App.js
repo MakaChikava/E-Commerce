@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import Filter from './components/filterNav';
 import Intro from './components/introPage';
 import './App.css';
