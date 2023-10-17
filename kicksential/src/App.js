@@ -1,9 +1,12 @@
 import Filter from './components/filterNav';
+import Intro from './components/introPage';
 import './App.css';
 
 function App() {
   return (
-  <div className='flex'>
+  <div className='flex flex-col'>
+    <Intro/>
+    <section className='flex flex-row'>
       <Filter/>
       <div className='flex flex-col w-full h-screen bg-red-500'>
         <h1>Main container</h1>
@@ -60,6 +63,7 @@ function App() {
 
         </div>
       </div>
+    </section>
   </div>
   );
 }
