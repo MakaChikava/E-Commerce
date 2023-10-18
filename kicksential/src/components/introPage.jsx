@@ -43,7 +43,7 @@ const Intro = () => {
         <section className="flex flex-col h-screen">
             <nav className="flex justify-between">
                 <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
-                <button className="bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2">Login/signup</button>
+                <button className="bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Login / signup</button>
             </nav>
 
             <div className="flex w-full group">
