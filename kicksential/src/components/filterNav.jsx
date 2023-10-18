@@ -1,6 +1,6 @@
 const filter = () => {
     return (
-        <div className="bg-gray-100 flex flex-col w-1/5">
+        <div className="bg-gray-100 flex flex-col w-[250px]">
             <h1 className="flex justify-center text-5xl">Filters</h1>
             
                 <h1 className="flex ml-2 divide-x font-bold text-lg text-gray-700">TYPE</h1>
@@ -31,6 +31,7 @@ const filter = () => {
                 <p className="m-5 w-5 h-5 rounded-full bg-gray-500"></p>
                 <p className="m-5 w-5 h-5 rounded-full bg-pink-500"></p>
                 <p className="m-5 w-5 h-5 rounded-full bg-purple-500"></p>
+                
                 </div>
         
         </div>
