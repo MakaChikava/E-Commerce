@@ -31,7 +31,7 @@ const filter = () => {
                 <p className="m-5 w-5 h-5 rounded-full bg-gray-500"></p>
                 <p className="m-5 w-5 h-5 rounded-full bg-pink-500"></p>
                 <p className="m-5 w-5 h-5 rounded-full bg-purple-500"></p>
-                
+
                 </div>
         
         </div>
