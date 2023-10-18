@@ -11,18 +11,12 @@ function App() {
       <Filter/>
       <div className='flex flex-col w-full h-screen bg-red-500'>
         <h1>Main container</h1>
-        <input 
+        <div className='flex justify-center pb-5'>
+          <input 
         type='search'
-        className=''
+        className='flex w-1/3 rounded-md p-2'
         placeholder='Search item'/>
-
-        <div className='flex justify-around'>
-          <button className='bg-gray-50 rounded mt-5'>category</button>
-          <button className='bg-gray-50 rounded mt-5'>category</button>
-          <button className='bg-gray-50 rounded mt-5'>category</button>
-          <button className='bg-gray-50 rounded mt-5'>category</button>
-          <button className='bg-gray-50 rounded mt-5'>category</button>
-        </div>
+        </div>       
 
         <div className='flex flex-row flex-wrap justify-center items-center justify-around bg-gray-500 w-full h-full'>
           <div className='bg-yellow-500 h-60 w-60 rounded'>
