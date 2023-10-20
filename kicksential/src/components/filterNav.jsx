@@ -18,6 +18,7 @@ const filter = () => {
                 <p className="pl-2">Puma</p>
                 <p className="pl-2">Yeezy</p>
                 <h1 className="flex ml-2 font-bold text-lg text-gray-700">COLOR</h1>
+                
                 <div className="flex flex-row flex-wrap w-5/6">
                 <p className="m-5 w-5 h-5 rounded-full bg-green-500"></p>
                 <p className="m-5 w-5 h-5 rounded-full bg-red-500"></p>
