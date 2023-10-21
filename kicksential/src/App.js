@@ -41,7 +41,7 @@ function App() {
               <div className='flex w-[100px] p-2 justify-around'>
                 <svg 
                 aria-hidden="true" 
-                className='w-[24px h-[24px]'
+                className='w-[24px h-[24px] cursor-pointer'
                 focusable="false" 
                 viewBox="0 0 24 24" 
                 role="img" 
@@ -53,7 +53,7 @@ function App() {
           {isFavorite ? 
           <svg 
           aria-label="Unlike" 
-          className="w-[24px] h-[24px]" 
+          className="w-[24px] h-[24px] cursor-pointer" 
           color="rgb(255, 48, 64)" 
           fill="rgb(255, 48, 64)" 
           role="img" 
@@ -65,7 +65,7 @@ function App() {
           : 
           <svg 
             aria-label="Like" 
-            className="h-[24px] w-[24px]" 
+            className="h-[24px] w-[24px] cursor-pointer" 
             color="rgb(38, 38, 38)" 
             fill="rgb(38, 38, 38)" 
             role="img" 
