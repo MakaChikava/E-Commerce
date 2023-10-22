@@ -7,6 +7,7 @@ const filter = () => {
                 <p className="pl-2">Running</p>
                 <p className="pl-2">Lifestyle</p>
                 <p className="pl-2">Sports</p>
+                <p className="pl-2">favorites</p>
                 <h1 className="flex ml-2 font-bold text-lg text-gray-700">BRAND</h1>
                 <p className="pl-2">Nike</p>
                 <p className="pl-2">Adidas</p>
