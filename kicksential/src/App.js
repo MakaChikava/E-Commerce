@@ -30,6 +30,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>
@@ -86,6 +87,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>
@@ -112,6 +114,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>
@@ -138,6 +141,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>
@@ -164,6 +168,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>
@@ -190,6 +195,7 @@ function App() {
             <img 
             src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
             className='h-[400px] w-[400px]'
+            alt='shoe'
             />
 
             <div className='flex justify-between'>

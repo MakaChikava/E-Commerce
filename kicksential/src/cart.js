@@ -1,13 +1,6 @@
-import React, {useState} from "react";
+
 import Navbar from "./components/Navbar";
 const Cart = () => {
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    const favoriteToggle = () =>{
-        const toggle = !isFavorite;
-        setIsFavorite(toggle);
-        console.log(isFavorite);
-    }
     return (
         <>
         <div className="flex flex-col h-screen">
@@ -24,8 +17,9 @@ const Cart = () => {
 
             <div className='flex w-fit flex-col p-8'>
                 <img 
-                src='https://static.nike.com/a/images/c_pmit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
+                src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
                 className='h-[200px] w-[200px]'
+                alt="shoe"
                 />
 
                 <div className='flex justify-between'>
