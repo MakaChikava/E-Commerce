@@ -12,7 +12,7 @@ const Cart = () => {
         <div className="flex">
         <div className="flex flex-col h-screen w-3/4">
             <div className="flex justify-center">
-                <h1 className="font-bold text-3xl">Your Cart Items (0)</h1>
+                <h1 className="font-bold text-3xl">Cart</h1>
             </div>
 
             <div className='flex w-fit flex-col p-8'>
