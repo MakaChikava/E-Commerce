@@ -32,6 +32,7 @@ const Cart = () => {
                 </div>
             </div>
         </div>
+        
         {/* summary section */}
             <div className="flex flex-col w-1/4 bg-gray-100">
                 <div className="flex">
