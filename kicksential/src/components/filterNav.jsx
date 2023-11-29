@@ -1,13 +1,19 @@
-const filter = () => {
+import { useState } from "react"
+
+const filter = (props) => {    
+
     return (
         <div className="bg-gray-100 flex flex-col w-[250px]">
             <h1 className="flex justify-center text-5xl">Filters</h1>
             
                 <h1 className="flex ml-2 divide-x font-bold text-lg text-gray-700">TYPE</h1>
-                <p className="pl-2">Running</p>
-                <p className="pl-2">Lifestyle</p>
-                <p className="pl-2">Sports</p>
-                <p className="pl-2">favorites</p>
+                <p onClick={props.getAll} className="pl-2 cursor-pointer">All</p>
+                <p onClick={props.getRunning} className="pl-2 cursor-pointer">Running</p>
+                <p onClick={props.getLifestyle} className="pl-2 cursor-pointer">Lifestyle</p>
+                <p onClick={props.getSoccer} className="pl-2 cursor-pointer">Soccer</p>
+                <p onClick={props.getBasketball} className="pl-2 cursor-pointer">Basketball</p>
+                <p onClick={props.getFootball} className="pl-2 cursor-pointer">Football</p>
+                <p onClick={props.getFavorites} className="pl-2 cursor-pointer">favorites</p>
                 <h1 className="flex ml-2 font-bold text-lg text-gray-700">BRAND</h1>
                 <p className="pl-2">Nike</p>
                 <p className="pl-2">Adidas</p>

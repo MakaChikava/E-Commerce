@@ -23,6 +23,60 @@ function App() {
         })
   }
 
+  const getTypeLifestyle = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/products/lifestyle/')
+        .then(res =>{
+        setProducts(res.data.products)
+        console.log(res.data.products)
+        })
+}
+
+  const getTypeRunning = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/products/running/')
+        .then(res =>{
+        setProducts(res.data.products)
+        console.log(res.data.products)
+        })
+}
+
+const getTypeSoccer = () =>{
+  axios
+      .get('http://127.0.0.1:8000/api/v1/products/soccer/')
+      .then(res =>{
+      setProducts(res.data.products)
+      console.log(res.data.products)
+      })
+}
+
+const getTypeBasketball = () =>{
+  axios
+      .get('http://127.0.0.1:8000/api/v1/products/basketball/')
+      .then(res =>{
+      setProducts(res.data.products)
+      console.log(res.data.products)
+      })
+}
+
+const getTypeFootball = () =>{
+  axios
+      .get('http://127.0.0.1:8000/api/v1/products/football/')
+      .then(res =>{
+      setProducts(res.data.products)
+      console.log(res.data.products)
+      })
+}
+
+const getFavorites = () =>{
+  axios
+      .get('http://127.0.0.1:8000/api/v1/favorites/')
+      .then(res => {
+          setProducts(res.data)
+          console.log(res.data)
+      })
+}
+
   useEffect(()=>{
     getAllProducts()
   }, [])
@@ -30,7 +84,16 @@ function App() {
   <div className='flex flex-col'>
     <Intro/>
     <section className='flex flex-row'>
-      <Filter/>
+
+      <Filter
+      getAll={getAllProducts}
+      getRunning={getTypeRunning}
+      getLifestyle={getTypeLifestyle}
+      getSoccer={getTypeSoccer}
+      getBasketball={getTypeBasketball}
+      getFootball={getTypeFootball}
+      getFavorites={getFavorites}/>
+
       <div className=' flex flex-col w-full pb-5 h-fit'>
         <div className='flex justify-center pt-8 pb-5'>
           <input 
