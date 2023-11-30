@@ -62,14 +62,6 @@ const getTypeFootball = () =>{
       })
 }
 
-const getFavorites = () =>{
-  axios
-      .get('http://127.0.0.1:8000/api/v1/favorites/')
-      .then(res => {
-          setProducts(res.data)
-          console.log(res.data)
-      })
-}
 // -------------------------- UPDATE FAVORITE PRODUCT ------------------------- //
 
 const UpdateFavorite = (product) =>{
@@ -89,7 +81,7 @@ const UpdateFavorite = (product) =>{
       })
       .then(() => {
         // Make sure that if you are in another category and make a new favorite the page wont kick you out back to the all category
-        if (products === getAllProducts){
+        if (products.length === 31){ // need to find a better way to compare than a set number
           getAllProducts()
         }else{
           const parts = product.get_absolute_url.split('/')
@@ -109,6 +101,7 @@ const UpdateFavorite = (product) =>{
   useEffect(()=>{
     getAllProducts()
   }, [])
+
   return (
   <div className='flex flex-col'>
     <Intro/>
@@ -121,7 +114,7 @@ const UpdateFavorite = (product) =>{
       getSoccer={getTypeSoccer}
       getBasketball={getTypeBasketball}
       getFootball={getTypeFootball}
-      getFavorites={getFavorites}/>
+      />
 
       <div className=' flex flex-col w-full pb-5 h-fit'>
         <div className='flex justify-center pt-8 pb-5'>
@@ -131,6 +124,7 @@ const UpdateFavorite = (product) =>{
           placeholder='Search shoes'/>
         </div>       
 
+{/* -------START OF A PRODUCT CONTAINER----------- */}
         <div className='flex flex-row flex-wrap justify-center items-center justify-around w-full h-full'>
           {products.map((product)=>{
             return(
