@@ -5,18 +5,12 @@ import axios from 'axios'
 import './App.css';
 
 function App() {
-  // const [isFavorite, setIsFavorite] = useState(false);
   const [products, setProducts] = useState([])
 
-  // const favoriteToggle = () =>{
-  //   let toggle = !isFavorite;
-  //   setIsFavorite(toggle);
-  //   console.log(isFavorite);
-  // }
 // --------------------GET API CALLS-------------------------- //
   const getAllProducts = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/all-products/?format=json')
+        .get('http://127.0.0.1:8000/api/v1/all-products/')
         .then(res => {
           setProducts(res.data)
           console.log(res.data)
@@ -94,9 +88,21 @@ const UpdateFavorite = (product) =>{
         get_image: product.get_image
       })
       .then(() => {
-        getAllProducts()
-        console.log('sucess')
-      })
+        // Make sure that if you are in another category and make a new favorite the page wont kick you out back to the all category
+        if (products === getAllProducts){
+          getAllProducts()
+        }else{
+          const parts = product.get_absolute_url.split('/')
+          let url = `/${parts[1]}/`
+            axios
+                .get(`http://127.0.0.1:8000/api/v1/products${url}`)
+                .then(res => {
+                    setProducts(res.data.products)
+                    console.log(res.data.products)
+                })
+          
+        
+      }})
 }
 
 
