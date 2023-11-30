@@ -135,7 +135,7 @@ const getFavorites = () =>{
               </svg>
 {/* --------FAVORITE BUTTON TOGGLE START----------- */}
 
-              {isFavorite ? 
+              {product.favorite ? 
               <svg 
               aria-label="Unlike" 
               className="w-[24px] h-[24px] cursor-pointer" 

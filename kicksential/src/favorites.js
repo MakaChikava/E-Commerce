@@ -10,7 +10,7 @@ const Favorites = () => {
         setIsFavorite(toggle);
         console.log(isFavorite);
         }
-        
+
     const getFavorites = () =>{
         axios
             .get('http://127.0.0.1:8000/api/v1/favorites/')
@@ -59,7 +59,7 @@ const Favorites = () => {
             </svg>
 {/* --------FAVORITE BUTTON TOGGLE START----------- */}
 
-            {isFavorite ? 
+            {favorite.favorite ? 
             <svg 
             aria-label="Unlike" 
             className="w-[24px] h-[24px] cursor-pointer" 
