@@ -6,8 +6,8 @@ import './App.css';
 
 function App() {
   const [products, setProducts] = useState([])
-
-// --------------------GET API CALLS-------------------------- //
+  const [query, setQuery] = useState('')
+// --------------------GET API CALLS, CATEGORIES-------------------------- //
   const getAllProducts = () =>{
     axios
         .get('http://127.0.0.1:8000/api/v1/all-products/')
@@ -62,6 +62,59 @@ const getTypeFootball = () =>{
       })
 }
 
+
+// -------------------- GET COLORS ------------------------//
+  const getColorGreen = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/green/')
+        .then((res)=>{
+          setProducts(res.data)
+        })}
+  const getColorPink = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/pink/')
+        .then((res)=>{
+          setProducts(res.data)
+        })}
+  const getColorRed = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/red/')
+        .then((res)=>{
+          setProducts(res.data)
+        })}
+  const getColorYellow = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/yellow/')
+        .then((res)=>{
+          setProducts(res.data)
+        })}
+  const getColorBlue = () =>{
+    axios
+        .get('http://127.0.0.1:8000/api/v1/blue/')
+        .then((res)=>{
+          setProducts(res.data)
+        })}
+  
+    const getColorGrey = () =>{
+      axios
+          .get('http://127.0.0.1:8000/api/v1/grey/')
+          .then((res)=>{
+            setProducts(res.data)
+          })}
+
+    const getColorWhite = () =>{
+      axios
+          .get('http://127.0.0.1:8000/api/v1/white/')
+          .then((res)=>{
+            setProducts(res.data)
+          })}
+
+    const getColorBlack = () =>{
+      axios
+          .get('http://127.0.0.1:8000/api/v1/black/')
+          .then((res)=>{
+            setProducts(res.data)
+          })}
 // -------------------------- UPDATE FAVORITE PRODUCT ------------------------- //
 
 const UpdateFavorite = (product) =>{
@@ -98,6 +151,24 @@ const UpdateFavorite = (product) =>{
 }
 
 
+// ---------------------------SEARCH------------------------- //  
+  const handleSearch = (e) =>{
+    console.log(e.target.value)
+    setQuery(e.target.value)
+  }
+
+  const getQuery = async () =>{
+    await axios
+              .post('http://127.0.0.1:8000/api/v1/products/search/', {'query' : `${query}`})
+              .then((res)=>{
+                console.log(res.data)
+                setProducts(res.data)
+              })
+              .catch((error)=>{
+                console.log(error)
+              })
+  }
+
   useEffect(()=>{
     getAllProducts()
   }, [])
@@ -114,14 +185,27 @@ const UpdateFavorite = (product) =>{
       getSoccer={getTypeSoccer}
       getBasketball={getTypeBasketball}
       getFootball={getTypeFootball}
+      getGreen={getColorGreen}
+      getPink={getColorPink}
+      getRed={getColorRed}
+      getBlue={getColorBlue}
+      getYellow={getColorYellow}
+      getGrey={getColorGrey}
+      getWhite={getColorWhite}
+      getBlack={getColorBlack}
       />
 
       <div className=' flex flex-col w-full pb-5 h-fit'>
+        {/* -----------------SEARCH BAR CONTAINER----------------- */}
         <div className='flex justify-center pt-8 pb-5'>
           <input 
-          type='search'
-          className='flex w-1/3 rounded-md p-2 bg-gray-50 border border-[3px] border-solid border-gray-150'
-          placeholder='Search shoes'/>
+            type='search'
+            name='query'
+            onKeyUp={handleSearch}
+            className='flex w-1/3 rounded-md p-2 bg-gray-50 border border-[3px] border-solid border-gray-150'
+            placeholder='Search shoes'/>
+
+            <button onClick={getQuery}>search</button>
         </div>       
 
 {/* -------START OF A PRODUCT CONTAINER----------- */}
@@ -145,7 +229,9 @@ const UpdateFavorite = (product) =>{
             </div>
 
           <div className='flex w-[100px] p-2 justify-around'>
+
 {/* ----------CART LOGO BUTTON--------- */}
+
               <svg 
                 aria-hidden="true" 
                 className='w-[24px h-[24px] cursor-pointer'
@@ -156,6 +242,7 @@ const UpdateFavorite = (product) =>{
                   <title>Cart</title>
                   <path stroke="currentColor" strokeWidth="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
               </svg>
+
 {/* --------FAVORITE BUTTON TOGGLE START----------- */}
 
               {product.favorite ? 
