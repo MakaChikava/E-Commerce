@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Cart from './cart';
 import Favorites from './favorites';
+import SignUp from './signup'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/favorites",
     element: <Favorites/>,
+  },
+  {
+    path: "/signup",
+    element: <SignUp/>,
   }
 ]);
 
