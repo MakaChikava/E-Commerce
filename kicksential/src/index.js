@@ -5,6 +5,7 @@ import App from './App';
 import Cart from './cart';
 import Favorites from './favorites';
 import SignUp from './signup'
+import Login from './login'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp/>,
+  },
+  {
+    path: "/login",
+    element: <Login/>,
   }
 ]);
 
