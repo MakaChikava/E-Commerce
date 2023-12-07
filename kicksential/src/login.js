@@ -18,7 +18,9 @@ const Login = () => {
 
     return (
         <div>
-            <h1 className="flex justify-center items-center text-neutral-600 text-4xl font-bold duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+            <Link to={'/'}>
+                <h1 className="flex justify-center items-center text-neutral-600 text-4xl font-bold duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+            </Link>
             <div className="w-full h-screen flex justify-center items-center flex-col">
                 <div className="flex flex-col w-fit">
                     <form>
