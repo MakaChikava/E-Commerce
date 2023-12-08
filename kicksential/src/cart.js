@@ -1,6 +1,8 @@
 
 import Navbar from "./components/Navbar";
 const Cart = () => {
+    const [cart, setCart]=useState([])
+
     return (
         <>
         <div className="flex flex-col h-screen">
