@@ -7,7 +7,7 @@ import Favorites from './favorites';
 import SignUp from './signup'
 import Login from './login'
 import { Provider } from 'react-redux';
-import { Store } from './state/store';
+import { Store } from './redux/store';
 
 
 const router = createBrowserRouter([
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={Store}>
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

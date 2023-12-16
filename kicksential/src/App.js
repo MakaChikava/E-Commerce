@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import Filter from './components/filterNav';
 import Intro from './components/introPage';
 import axios from 'axios'
+import { useDispatch } from 'redux';
 import './App.css';
+import { addToCart } from './redux/cartSlice';
 
 function App() {
   const [products, setProducts] = useState([])
@@ -115,6 +117,11 @@ const getTypeFootball = () =>{
           .then((res)=>{
             setProducts(res.data)
           })}
+// -------------------------- ADD TO CART BUTTON --------------------------- //
+
+const handleAddToCart = (product) =>{
+  dispatch(addToCart(product))
+}
 // -------------------------- UPDATE FAVORITE PRODUCT ------------------------- //
 
 const UpdateFavorite = (product) =>{
@@ -238,7 +245,8 @@ const UpdateFavorite = (product) =>{
                 focusable="false" 
                 viewBox="0 0 24 24" 
                 role="img" 
-                fill="none">
+                fill="none"
+                onClick={()=>{handleAddToCart(product)}}>
                   <title>Cart</title>
                   <path stroke="currentColor" strokeWidth="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
               </svg>
