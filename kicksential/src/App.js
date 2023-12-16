@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import Filter from './components/filterNav';
 import Intro from './components/introPage';
 import axios from 'axios'
-import { useDispatch } from 'redux';
-import './App.css';
+import { useDispatch } from 'react-redux';
 import { addToCart } from './redux/cartSlice';
+import './App.css';
 
 function App() {
   const [products, setProducts] = useState([])
@@ -118,9 +118,9 @@ const getTypeFootball = () =>{
             setProducts(res.data)
           })}
 // -------------------------- ADD TO CART BUTTON --------------------------- //
-
+const dispatch = useDispatch()
 const handleAddToCart = (product) =>{
-  dispatch(addToCart(product))
+  dispatch((addToCart(product)))
 }
 // -------------------------- UPDATE FAVORITE PRODUCT ------------------------- //
 
