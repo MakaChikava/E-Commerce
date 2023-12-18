@@ -24,6 +24,7 @@ const cartSlice = createSlice({
                     state.cartItems.push(tempProduct);
                 }
 
+                state.cartTotalAmount = state.cartItems.length // work on this
         },
 
     }
