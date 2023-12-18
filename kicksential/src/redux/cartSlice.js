@@ -11,13 +11,19 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action){
-// check if item already exists in cart to increase quantity
+            // find duplicate product index
             const itemIndex = state.cartItems.findIndex(
                 (item) => item.id === action.payload.id
                 );
+                
+                // check if item already exists in cart to increase quantity
+                if(itemIndex >=0){
+                    state.cartItems[itemIndex].cartQuantity += 1
+                } else{
+                    const tempProduct = {...action.payload, cartQuantity: 1}
+                    state.cartItems.push(tempProduct);
+                }
 
-            const tempProduct = {...action.payload, cartQuantity: 1}
-            state.cartItems.push(tempProduct);
         },
 
     }
