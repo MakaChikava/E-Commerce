@@ -7,48 +7,51 @@ const Cart = () => {
     return (
         <>
         <div className="flex flex-col h-screen">
-            <Navbar/>
+           <Navbar/>
             <br/>
             <br/>
             <br/>
             <br/>
+
         <div className="flex">
-        <div className="flex flex-col h-screen w-3/4">
-            <div className="flex justify-center">
-                <h1 className="font-bold text-3xl">Cart</h1>
-            </div>
-
-            <div className='flex w-fit flex-col p-8'>
-
-            {cart.length === 0?(
-                <p>there are no items</p>
-            ):(
-            <>
-            {cart.map((cartItem)=>(
-                <div>
-
-                    <p>{cartItem.name}</p>
-                    <img 
-                    src={cartItem.get_image}/>
+            <div className="flex flex-col h-screen w-3/4">
+                <div className="flex justify-center">
+                    <h1 className="font-bold text-3xl">Cart</h1>
                 </div>
-                ))}
-                </>
-                )}
-                <img 
-                src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
-                className='h-[200px] w-[200px]'
-                alt="shoe"
-                />
 
-                <div className='flex justify-between'>
-                    <div className='flex flex-col p-2'>
-                        <p className='font-semibold'>Airforce I</p>
-                    </div>
-                    <div className='flex p-2'>
-                        <p className='font-semibold'>$130</p>
-                    </div>
+                <div className='flex w-full flex-col p-8'>
+                        <div>
+                            <div className="flex justify-between">
+                                <h3 className="font-bold">Product</h3>
+                                <h3 className="font-bold">Price</h3>
+                                <h3 className="font-bold">Quantity</h3>
+                            </div>
+                            <br/>
+                {cart.length === 0?(
+                        <p>there are no items</p>
+                    ):(
+                    <>
+                    {cart.map((cartItem)=>(
+                            <div className="flex justify-between">
+                                <h3>
+                                <img 
+                                    src={cartItem.get_image}
+                                    className="h-[100px]"
+                                />
+                                    {cartItem.name}
+                                </h3>
+                                <p>${cartItem.price}</p>
+                                <div className="flex h-fit w-[50px] justify-between">
+                                    <button>-</button>
+                                    <p>{cartItem.cartQuantity}</p>
+                                    <button>+</button>
+                                </div>
+                            </div>
+                        ))}
+                        </>
+                        )}
+                        </div>
                 </div>
-            </div>
         </div>
         
         {/* summary section */}
@@ -56,20 +59,27 @@ const Cart = () => {
                 <div className="flex">
                     <h1 className="font-bold text-2xl p-4">Summary</h1>
                 </div>
+                
+                {cart.map((cartItem)=>(
+                    <>
+                        <div className="flex justify-between p-4 w-full">
+                            <p className="flex">{cartItem.cartQuantity}x {cartItem.name}</p>
+                            <p className="flex">${cartItem.price * cartItem.cartQuantity}</p>
+                        </div>
 
-                <div className="flex justify-between p-4 w-full">
-                        <p className="flex">Airforce I</p>
-                        <p className="flex">$130.00</p>
+                    </>
+                ))}
+
+                <div className="flex w-full justify-between p-4">
+                    <p className="flex font-bold">Total</p>
+                    <p className="flex font-bold">$130.00</p>
                 </div>
-
-            <div className="flex w-full justify-between p-4">
-                <p className="flex font-bold">Total</p>
-                <p className="flex font-bold">$130.00</p>
-            </div>
+                
 
                 <div className="flex w-full">
                     <button className="flex justify-center bg-black text-white text-xl font-md rounded-full h-fit w-full p-5">Checkout</button>
                 </div>
+
             </div>
         {/* --------- */}
         </div>
