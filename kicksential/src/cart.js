@@ -1,6 +1,9 @@
 
 import Navbar from "./components/Navbar";
+import { useSelector } from "react-redux";
+
 const Cart = () => {
+    const cart = useSelector((state)=> state.cart.cartItems)
     return (
         <>
         <div className="flex flex-col h-screen">
@@ -16,6 +19,21 @@ const Cart = () => {
             </div>
 
             <div className='flex w-fit flex-col p-8'>
+
+            {cart.length === 0?(
+                <p>there are no items</p>
+            ):(
+            <>
+            {cart.map((cartItem)=>(
+                <div>
+
+                    <p>{cartItem.name}</p>
+                    <img 
+                    src={cartItem.get_image}/>
+                </div>
+                ))}
+                </>
+                )}
                 <img 
                 src='https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8c92d772-f288-472e-97f1-4e1c9b3c3265/air-force-1-07-premium-mens-shoes.png'
                 className='h-[200px] w-[200px]'
