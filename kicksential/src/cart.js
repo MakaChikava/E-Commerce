@@ -1,13 +1,19 @@
 
 import Navbar from "./components/Navbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "./redux/cartSlice";
 
 const Cart = () => {
     const cart = useSelector((state)=> state.cart.cartItems)
+    const dispatch = useDispatch()
+
+    const handleDelete = (cartItem) => {
+        dispatch(removeFromCart(cartItem))
+    }
     return (
         <>
         <div className="flex flex-col h-screen">
-           <Navbar/>
+            <Navbar/>
             <br/>
             <br/>
             <br/>
@@ -40,6 +46,7 @@ const Cart = () => {
                                 />
                                     {cartItem.name}
                                 </h3>
+                                <button onClick={()=> handleDelete(cartItem)}>Remove</button>
                                 <p>${cartItem.price}</p>
                                 <div className="flex h-fit w-[50px] justify-between">
                                     <button>-</button>
