@@ -1,7 +1,7 @@
 
 import Navbar from "./components/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "./redux/cartSlice";
+import { addToCart, decreaseCart, removeFromCart } from "./redux/cartSlice";
 
 const Cart = () => {
     const cart = useSelector((state)=> state.cart.cartItems)
@@ -13,6 +13,10 @@ const Cart = () => {
 
     const increaseQuantity = (product)=>{
         dispatch(addToCart(product))
+    }
+
+    const decreaseQuantity = (product)=>{
+        dispatch(decreaseCart(product))
     }
     return (
         <>
@@ -53,7 +57,7 @@ const Cart = () => {
                                 <button onClick={()=> handleDelete(cartItem)}>Remove</button>
                                 <p>${cartItem.price}</p>
                                 <div className="flex h-fit w-[50px] justify-between">
-                                    <button>-</button>
+                                    <button onClick={()=>decreaseQuantity(cartItem)}>-</button>
                                     <p>{cartItem.cartQuantity}</p>
                                     <button onClick={()=>increaseQuantity(cartItem)}>+</button>
                                 </div>

@@ -13,7 +13,7 @@ const cartSlice = createSlice({
         addToCart(state, action){
             // find duplicate product index
             const itemIndex = state.cartItems.findIndex(
-                (item) => item.id === action.payload.id
+                    (item) => item.id === action.payload.id
                 );
                 
                 // check if item already exists in cart to increase quantity
@@ -24,21 +24,35 @@ const cartSlice = createSlice({
                     state.cartItems.push(tempProduct);
                 }
 
-                state.cartTotalAmount = state.cartItems.length // work on this
-
                 localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         },
 
         removeFromCart(state, action){
             const nextCartItems = state.cartItems.filter(
-                cartItem => cartItem.id !== action.payload.id 
-            )
+                    cartItem => cartItem.id !== action.payload.id 
+                )
             state.cartItems = nextCartItems
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
+        },
+
+        decreaseCart(state, action){
+            const itemIndex = state.cartItems.findIndex(
+                cartItem => cartItem.id === action.payload.id
+            );
+
+            if(state.cartItems[itemIndex].cartQuantity > 1){
+                state.cartItems[itemIndex].cartQuantity -= 1
+            }else if(state.cartItems[itemIndex].cartQuantity === 1){
+                const nextCartItems = state.cartItems.filter(
+                        cartItem => cartItem.id !== cartItem[itemIndex]
+                    )
+                state.cartItems = nextCartItems
+            }
+            localStorage.setItem("cartItems", state.cartItems)
         }
 
     }
 })
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, decreaseCart } = cartSlice.actions;
 export default cartSlice.reducer;
