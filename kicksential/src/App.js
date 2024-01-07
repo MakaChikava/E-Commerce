@@ -64,7 +64,6 @@ const getTypeFootball = () =>{
       })
 }
 
-
 // -------------------- GET COLORS ------------------------//
   const getColorGreen = () =>{
     axios
