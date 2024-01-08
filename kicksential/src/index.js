@@ -8,6 +8,7 @@ import SignUp from './signup'
 import Login from './login'
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { getTotals } from './redux/cartSlice';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
   }
 ]);
 
+store.dispatch(getTotals());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,11 +1,17 @@
 
 import Navbar from "./components/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, decreaseCart, removeFromCart } from "./redux/cartSlice";
+import { addToCart, decreaseCart, getTotals, removeFromCart } from "./redux/cartSlice";
+import { useEffect } from "react";
 
 const Cart = () => {
-    const cart = useSelector((state)=> state.cart.cartItems)
+    const cartItems = useSelector((state)=> state.cart.cartItems)
+    const cart = useSelector((state)=> state.cart)
     const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(getTotals())
+    }, [cart])
 
     const handleDelete = (cartItem) => {
         dispatch(removeFromCart(cartItem))
@@ -30,7 +36,7 @@ const Cart = () => {
         <div className="flex">
             <div className="flex flex-col h-screen w-3/4">
                 <div className="flex justify-center">
-                    <h1 className="font-bold text-3xl">Cart</h1>
+                    <h1 className="font-bold text-3xl">cart ({cart.cartTotalQuantity})</h1> {/* Put on navbar */}
                 </div>
 
                 <div className='flex w-full flex-col p-8'>
@@ -41,11 +47,11 @@ const Cart = () => {
                                 <h3 className="font-bold">Quantity</h3>
                             </div>
                             <br/>
-                {cart.length === 0?(
+                {cartItems.length === 0?(
                         <p>there are no items</p>
                     ):(
                     <>
-                    {cart.map((cartItem)=>(
+                    {cartItems.map((cartItem)=>(
                             <div className="flex justify-between">
                                 <h3>
                                 <img 
@@ -75,7 +81,7 @@ const Cart = () => {
                     <h1 className="font-bold text-2xl p-4">Summary</h1>
                 </div>
                 
-                {cart.map((cartItem)=>(
+                {cartItems.map((cartItem)=>(
                     <>
                         <div className="flex justify-between p-4 w-full">
                             <p className="flex">{cartItem.cartQuantity}x {cartItem.name}</p>
@@ -87,8 +93,9 @@ const Cart = () => {
 
                 <div className="flex w-full justify-between p-4">
                     <p className="flex font-bold">Total</p>
-                    <p className="flex font-bold">$130.00</p>
+                    <p className="flex font-bold">${cart.cartTotalAmount}</p>
                 </div>
+
                 
 
                 <div className="flex w-full">
