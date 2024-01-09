@@ -8,7 +8,7 @@ const Cart = () => {
     const cartItems = useSelector((state)=> state.cart.cartItems)
     const cart = useSelector((state)=> state.cart)
     const dispatch = useDispatch()
-
+    
     useEffect(()=>{
         dispatch(getTotals())
     }, [cart])
