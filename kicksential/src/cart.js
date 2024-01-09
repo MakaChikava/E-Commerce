@@ -55,7 +55,7 @@ const Cart = () => {
                                         <img src={cartItem.get_image} className="h-[100px] w-[100px]"/>
                                     </div>
                                     <div className="flex w-[150px]">
-                                        <h3>{cartItem.name}</h3>
+                                        <h3 className="ml-1">{cartItem.name}</h3>
                                     </div>
                                 </div>
                                 {/* price container */}
@@ -63,20 +63,28 @@ const Cart = () => {
                                     <p>${cartItem.price}</p>
                                 </div>
                                 {/* quantity and remove button container */}
-                                <div className="flex flex-col justify-around items-center w-1/3">
+                                <div className="flex justify-around w-1/3">
                                     {/* quantity container */}
                                     <div className="flex h-1/3 w-[90px] items-center justify-between">
                                         <button className="flex items-center justify-center w-6 h-6 rounded-full bg-black text-white text-2xl" 
                                         onClick={()=>decreaseQuantity(cartItem)}>-</button>
 
-                                        <p>{cartItem.cartQuantity}</p>
+                                        <p className=" font-medium">{cartItem.cartQuantity}</p>
 
                                         <button onClick={()=>increaseQuantity(cartItem)}
                                         className="flex items-center justify-center w-6 h-6 rounded-full bg-black text-white text-xl">+</button>
                                     </div>
                                     {/* remove button container */}
                                     <div className="flex h-1/3">
-                                        <button className="flex" onClick={()=> handleDelete(cartItem)}>Remove</button>
+                                        <svg 
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        viewBox="0 0 20 20" 
+                                        fill="currentColor" 
+                                        aria-hidden="true" 
+                                        className=" text-gray-500 w-[20px] hover:cursor-pointer"
+                                        onClick={()=> handleDelete(cartItem)}>
+                                            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"></path>
+                                        </svg>
                                     </div>
 
                                 </div>
@@ -86,6 +94,8 @@ const Cart = () => {
                         </div>
                         </>
                         )}
+
+
         </div>
         
         {/* summary section */}
