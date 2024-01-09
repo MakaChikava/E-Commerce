@@ -44,11 +44,11 @@ const Cart = () => {
                     ):(
                     <>
                     {/* CART ITEMS CONTAINER */}
-                    <div className='flex w-full flex-col justify-between p-8 divide-y'>
+                    <div className='flex w-full h-screen flex-col  p-8 divide-y'>
                         
                     {cartItems.map((cartItem)=>(
                         // ONE CART ITEM CONTAINER
-                            <div className="flex justify-between">
+                            <div className="flex justify-between mb-2">
                                 {/* image and name container*/}
                                 <div className="flex justify-between w-[250px]">
                                     <div className="flex">
@@ -94,15 +94,20 @@ const Cart = () => {
                     <h1 className="font-bold text-2xl p-4">Summary</h1>
                 </div>
                 
+                <ul className="divide-y divide-gray-50">
+
                 {cartItems.map((cartItem)=>(
                     <>
+                    <li>
                         <div className="flex justify-between p-4 w-full">
                             <p className="flex">{cartItem.cartQuantity}x {cartItem.name}</p>
                             <p className="flex">${cartItem.price * cartItem.cartQuantity}</p>
                         </div>
+                    </li>
 
                     </>
                 ))}
+                </ul>
 
                 <div className="flex w-full justify-between p-4">
                     <p className="flex font-bold">Total</p>

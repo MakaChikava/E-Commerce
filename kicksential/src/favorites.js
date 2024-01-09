@@ -47,7 +47,7 @@ const UpdateFavorite = (product) =>{
     return (
         <>
         <Navbar/>
-        <div className='flex flex-row flex-wrap justify-center items-center justify-around w-full h-full'>
+        <div className='flex flex-row flex-wrap justify-center items-center w-full h-full'>
         {favorites.map((favorite)=>{
             return(
             
