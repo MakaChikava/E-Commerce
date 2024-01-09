@@ -208,6 +208,7 @@ const UpdateFavorite = (product) =>{
             type='search'
             name='query'
             onChange={handleSearch}
+            onk
             className='flex w-1/3 rounded-md p-2 bg-gray-50 border border-[3px] border-solid border-gray-150'
             placeholder='Search shoes'/>
 

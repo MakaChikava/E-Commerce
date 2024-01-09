@@ -36,7 +36,7 @@ const Cart = () => {
         <div className="flex">
             <div className="flex flex-col h-screen w-3/4">
                 <div className="flex justify-center">
-                    <h1 className="font-bold text-3xl">cart ({cart.cartTotalQuantity})</h1> {/* Put on navbar */}
+                    <h1 className="font-bold text-3xl">Shopping cart</h1> {/* Put on navbar */}
                 </div>
 
                 {cartItems.length === 0?(
@@ -44,21 +44,15 @@ const Cart = () => {
                     ):(
                     <>
                     {/* CART ITEMS CONTAINER */}
-                    <div className='flex w-full flex-col p-8'>
-                        <div>
-                            {/* <div className="flex justify-between">
-                                <h3 className="font-bold">Product</h3>
-                                <h3 className="font-bold">Price</h3>
-                                <h3 className="font-bold">Quantity</h3>
-                            </div>
-                            <br/> */}
+                    <div className='flex w-full flex-col justify-between p-8 divide-y'>
+                        
                     {cartItems.map((cartItem)=>(
                         // ONE CART ITEM CONTAINER
                             <div className="flex justify-between">
                                 {/* image and name container*/}
                                 <div className="flex justify-between w-[250px]">
                                     <div className="flex">
-                                        <img src={cartItem.get_image} className="h-[100px]"/>
+                                        <img src={cartItem.get_image} className="h-[100px] w-[100px]"/>
                                     </div>
                                     <div className="flex w-[150px]">
                                         <h3>{cartItem.name}</h3>
@@ -87,9 +81,9 @@ const Cart = () => {
 
                                 </div>
                             </div>
+                            
                         ))}
                         </div>
-                    </div>
                         </>
                         )}
         </div>
