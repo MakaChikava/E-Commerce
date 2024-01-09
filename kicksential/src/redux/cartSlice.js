@@ -35,21 +35,23 @@ const cartSlice = createSlice({
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         },
 
-        decreaseCart(state, action){
+        decreaseCart(state, action) {
             const itemIndex = state.cartItems.findIndex(
                 cartItem => cartItem.id === action.payload.id
             );
-
-            if(state.cartItems[itemIndex].cartQuantity > 1){
-                state.cartItems[itemIndex].cartQuantity -= 1
-            }else if(state.cartItems[itemIndex].cartQuantity === 1){
+        
+            if (state.cartItems[itemIndex].cartQuantity > 1) {
+                state.cartItems[itemIndex].cartQuantity -= 1;
+            } else if (state.cartItems[itemIndex].cartQuantity === 1) {
                 const nextCartItems = state.cartItems.filter(
-                        cartItem => cartItem.id !== cartItem[itemIndex]
-                    )
-                state.cartItems = nextCartItems
+                    cartItem => cartItem.id !== action.payload.id
+                );
+                state.cartItems = nextCartItems;
             }
-            localStorage.setItem("cartItems", state.cartItems)
-        },
+        
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        }
+        ,
 
         getTotals(state, action){
             let {total, quantity} = state.cartItems.reduce(

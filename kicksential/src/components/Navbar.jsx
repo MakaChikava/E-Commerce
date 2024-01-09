@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getTotals } from "../redux/cartSlice";
 
 const Navbar = () => {
+    const cart = useSelector((state)=> state.cart)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(getTotals())
+    }, [cart])
     return (
         <header className="bg-gray-200 fixed top-0 w-full shadow-md">
             <nav className="flex justify-between">
@@ -21,16 +29,21 @@ const Navbar = () => {
                     </svg>
                 </Link>
                 <Link to='/cart'>
-                    <svg 
-                        aria-hidden="true" 
-                        className="h-[30px] w-[30px] flex" 
-                        focusable="false" 
-                        viewBox="0 0 24 24" 
-                        role="img" 
-                        fill="none">
-                        <title>Cart</title>
-                        <path stroke="currentColor" strokeWidth="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
-                    </svg>
+                    <div className="flex">
+                        <svg 
+                            aria-hidden="true" 
+                            className="h-[30px] w-[30px] flex" 
+                            focusable="false" 
+                            viewBox="0 0 24 24" 
+                            role="img" 
+                            fill="none">
+                            <title>Cart</title>
+                            <path stroke="currentColor" strokeWidth="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
+                        </svg>
+                        <div className="w-6 h-6 rounded-full bg-black -translate-x-2 -translate-y-4">
+                            <h1 className="flex justify-center text-white ">{cart.cartTotalQuantity}</h1>
+                        </div>
+                    </div>
                 </Link>
                 <button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Login / signup</button>
                 </div>

@@ -39,40 +39,59 @@ const Cart = () => {
                     <h1 className="font-bold text-3xl">cart ({cart.cartTotalQuantity})</h1> {/* Put on navbar */}
                 </div>
 
-                <div className='flex w-full flex-col p-8'>
-                        <div>
-                            <div className="flex justify-between">
-                                <h3 className="font-bold">Product</h3>
-                                <h3 className="font-bold">Price</h3>
-                                <h3 className="font-bold">Quantity</h3>
-                            </div>
-                            <br/>
                 {cartItems.length === 0?(
                         <p>there are no items</p>
                     ):(
                     <>
+                    {/* CART ITEMS CONTAINER */}
+                    <div className='flex w-full flex-col p-8'>
+                        <div>
+                            {/* <div className="flex justify-between">
+                                <h3 className="font-bold">Product</h3>
+                                <h3 className="font-bold">Price</h3>
+                                <h3 className="font-bold">Quantity</h3>
+                            </div>
+                            <br/> */}
                     {cartItems.map((cartItem)=>(
+                        // ONE CART ITEM CONTAINER
                             <div className="flex justify-between">
-                                <h3>
-                                <img 
-                                    src={cartItem.get_image}
-                                    className="h-[100px]"
-                                />
-                                    {cartItem.name}
-                                </h3>
-                                <button onClick={()=> handleDelete(cartItem)}>Remove</button>
-                                <p>${cartItem.price}</p>
-                                <div className="flex h-fit w-[50px] justify-between">
-                                    <button onClick={()=>decreaseQuantity(cartItem)}>-</button>
-                                    <p>{cartItem.cartQuantity}</p>
-                                    <button onClick={()=>increaseQuantity(cartItem)}>+</button>
+                                {/* image and name container*/}
+                                <div className="flex justify-between w-[250px]">
+                                    <div className="flex">
+                                        <img src={cartItem.get_image} className="h-[100px]"/>
+                                    </div>
+                                    <div className="flex w-[150px]">
+                                        <h3>{cartItem.name}</h3>
+                                    </div>
+                                </div>
+                                {/* price container */}
+                                <div className="flex justify-center w-1/3">
+                                    <p>${cartItem.price}</p>
+                                </div>
+                                {/* quantity and remove button container */}
+                                <div className="flex flex-col justify-around items-center w-1/3">
+                                    {/* quantity container */}
+                                    <div className="flex h-1/3 w-[90px] items-center justify-between">
+                                        <button className="flex items-center justify-center w-6 h-6 rounded-full bg-black text-white text-2xl" 
+                                        onClick={()=>decreaseQuantity(cartItem)}>-</button>
+
+                                        <p>{cartItem.cartQuantity}</p>
+
+                                        <button onClick={()=>increaseQuantity(cartItem)}
+                                        className="flex items-center justify-center w-6 h-6 rounded-full bg-black text-white text-xl">+</button>
+                                    </div>
+                                    {/* remove button container */}
+                                    <div className="flex h-1/3">
+                                        <button className="flex" onClick={()=> handleDelete(cartItem)}>Remove</button>
+                                    </div>
+
                                 </div>
                             </div>
                         ))}
+                        </div>
+                    </div>
                         </>
                         )}
-                        </div>
-                </div>
         </div>
         
         {/* summary section */}
