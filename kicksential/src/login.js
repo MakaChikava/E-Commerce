@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,15 +8,24 @@ const Login = () => {
 
     const handleUsername = (e) =>{
         setUsername(e.target.value)
-        console.log(username)
     }
 
     const handlePassword = (e) =>{
         setPassword(e.target.value)
-        console.log(password)
-
     }
 
+    const handleSubmit = () =>{
+        const loginData = {
+            password: password,
+            username: username
+        }
+        axios
+            .post('http://127.0.0.1:8000/api/v1/token/login/', loginData)
+            .then((res)=>{
+                const token = res.data.auth_token
+                console.log(token)
+            })
+    }
 
 
     return (
@@ -33,7 +43,7 @@ const Login = () => {
                             handlePassword(e)
                         }} type="text" placeholder="Password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
                     </form>
-                    <button className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
+                    <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
                     
                 </div>
             </div>
