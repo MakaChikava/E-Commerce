@@ -6,7 +6,6 @@ import { toast } from 'bulma-toast'
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     const handleUsername = (e) =>{
         setUsername(e.target.value)
