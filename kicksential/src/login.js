@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from 'bulma-toast'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     const handleUsername = (e) =>{
         setUsername(e.target.value)
@@ -24,6 +26,15 @@ const Login = () => {
             .then((res)=>{
                 const token = res.data.auth_token
                 console.log(token)
+                localStorage.setItem('Token', JSON.stringify(token))
+                toast({
+                    message: ' Succesfully logged in!',
+                    type: 'is-success',
+                    dismissable: true,
+                    pauseOnHover: true,
+                    duration: 2000,
+                    position: 'bottom-right',
+                })
             })
     }
 
@@ -41,7 +52,7 @@ const Login = () => {
                         }} type="text" placeholder="username" className="flex border-2 p-2 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
-                        }} type="text" placeholder="Password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="Password" placeholder="Password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
                     </form>
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
                     
