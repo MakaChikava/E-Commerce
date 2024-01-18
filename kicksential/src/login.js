@@ -2,10 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from 'bulma-toast'
+import { useSelector, useDispatch } from "react-redux";
+import { setToken } from "./redux/authSlice";
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
+
 
     const handleUsername = (e) =>{
         setUsername(e.target.value)
@@ -24,8 +28,7 @@ const Login = () => {
             .post('http://127.0.0.1:8000/api/v1/token/login/', loginData)
             .then((res)=>{
                 const token = res.data.auth_token
-                console.log(token)
-                localStorage.setItem('Token', JSON.stringify(token))
+                dispatch(setToken(token))
                 toast({
                     message: ' Succesfully logged in!',
                     type: 'is-success',
