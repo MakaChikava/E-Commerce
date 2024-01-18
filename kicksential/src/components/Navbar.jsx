@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getTotals } from "../redux/cartSlice";
 
 const Navbar = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
     const cart = useSelector((state)=> state.cart)
     const dispatch = useDispatch()
     useEffect(()=>{
@@ -45,7 +46,11 @@ const Navbar = () => {
                         </div>
                     </div>
                 </Link>
-                <button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Login / signup</button>
+                {isAuthenticated ? 
+                    <button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Logout</button> : 
+                    <Link to='/signup'><button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Login / Signup</button></Link>
+                }
+                
                 </div>
             </nav>
             </header>

@@ -92,7 +92,7 @@ const SignUp = () => {
                     </div>
 
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Signup</button>
-                    <p className="flex w-fit">already have an account? <Link to='/login' className="text-blue-500">login</Link></p>
+                    <p className="flex w-fit">already have an account?<Link to='/login' className="text-blue-500">login</Link></p>
                 </div>
             </div>
         </div>
