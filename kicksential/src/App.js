@@ -9,6 +9,8 @@ import './App.css';
 function App() {
   const [products, setProducts] = useState([])
   const [query, setQuery] = useState('')
+  const [isAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
+  const [token] = useState(localStorage.getItem('token'))
 // --------------------GET API CALLS, CATEGORIES-------------------------- //
   const getAllProducts = () =>{
     axios
@@ -119,41 +121,52 @@ const getTypeFootball = () =>{
 // -------------------------- ADD TO CART BUTTON --------------------------- //
 const dispatch = useDispatch()
 const handleAddToCart = (product) =>{
-  dispatch((addToCart(product)))
+  if (isAuthenticated) {
+    dispatch((addToCart(product)))
+  } else {
+    alert('Adding products to the cart are for logged in users only')
+  }
 }
 // -------------------------- UPDATE FAVORITE PRODUCT ------------------------- //
 
 const UpdateFavorite = (product) =>{
-  console.log(product.id)
-  axios
-      .put(`http://127.0.0.1:8000/api/v1/product/${product.id}`, 
-      {
-        category: product.category,
-        name: product.name,
-        type: product.type,
-        get_absolute_url: product.get_absolute_url,
-        brand: product.brand,
-        color: product.color,
-        price: product.price,
-        favorite: !product.favorite,
-        get_image: product.get_image
-      })
-      .then(() => {
-        // Make sure that if you are in another category and make a new favorite the page wont kick you out back to the all category
-        if (products.length === 31){ // need to find a better way to compare than a set number
-          getAllProducts()
-        }else{
-          const parts = product.get_absolute_url.split('/')
-          let url = `/${parts[1]}/`
-            axios
-                .get(`http://127.0.0.1:8000/api/v1/products${url}`)
-                .then(res => {
-                    setProducts(res.data.products)
-                    console.log(res.data.products)
-                })
+  console.log(token)
+    axios
+        .put(`http://127.0.0.1:8000/api/v1/product/${product.id}`, 
+        {
+          category: product.category,
+          name: product.name,
+          type: product.type,
+          get_absolute_url: product.get_absolute_url,
+          brand: product.brand,
+          color: product.color,
+          price: product.price,
+          favorite: !product.favorite,
+          get_image: product.get_image
+        }, {
+          headers: {
+            'Authorization' : `Token ${token}`
+          }
+        })
+        .then(() => {
+          // Make sure that if you are in another category and make a new favorite the page wont kick you out back to the all category
+          if (products.length === 31){ // need to find a better way to compare than a set number
+            getAllProducts()
+          }else{
+            const parts = product.get_absolute_url.split('/')
+            let url = `/${parts[1]}/`
+              axios
+                  .get(`http://127.0.0.1:8000/api/v1/products${url}`)
+                  .then(res => {
+                      setProducts(res.data.products)
+                      console.log(res.data.products)
+                  })
+            
           
-        
-      }})
+        }})
+        .catch((error)=>{
+          alert('Favoriting products are for logged in users only')
+        })
 }
 
 

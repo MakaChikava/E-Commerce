@@ -54,7 +54,7 @@ const Navbar = () => {
                     </div>
                 </Link>
                 {isAuthenticated ?
-                        <h1> Hi {localStorage.getItem('user')}!</h1> : ""
+                        <h1> Hi {localStorage.getItem('user')}!</h1> : <></>
                 }
                 {isAuthenticated ? 
                     <button onClick={()=> handleLogout()} className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Logout</button> : 

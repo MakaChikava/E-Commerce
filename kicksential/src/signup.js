@@ -24,29 +24,8 @@ const SignUp = () => {
     }
 
     const handleSubmit = () =>{
-        if(username===''){
-            setError('the username is missing')
-            console.log(error)
-            return;
-        }else{
-            setError('')
-        }
-        if (password===''){
-            setError('the password is missing')
-            console.log(error)
-            return;
-        }else{
-            setError('')
-        }
-        if (password === password2){
-            setError('')
-            console.log("Password set!")
-        } else{
-            setError('Passwords do not match!')
-            console.log(error)
-        }
+        if(password === password2){
 
-        if(error === ''){
             const signUpData = {
                 username: username,
                 password: password
@@ -65,9 +44,14 @@ const SignUp = () => {
                     window.location.replace('/login')
                 })
                 .catch((error)=>{
-                    console.log(error)
+                    setError(error.response.data.password)
                 })
+
+        } else{
+            console.log("Passwords don't match")
+            setError("Passwords don't match")
         }
+        
     }
 
     return (

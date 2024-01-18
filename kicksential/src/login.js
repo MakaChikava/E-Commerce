@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from 'bulma-toast'
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setToken } from "./redux/authSlice";
 
 const Login = () => {
@@ -39,6 +39,9 @@ const Login = () => {
                 })
                 localStorage.setItem('user', username)
                 window.location.replace('/')
+            })
+            .catch((error)=>{
+                console.log(error.response.data.non_field_errors)
             })
     }
 
