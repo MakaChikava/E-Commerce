@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotals } from "../redux/cartSlice";
-import axios from "axios";
 import { removeToken } from "../redux/authSlice";
 
 const Navbar = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
+    const [isAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
     const cart = useSelector((state)=> state.cart)
-    const token = localStorage.getItem("token")
     const dispatch = useDispatch()
 
     const handleLogout = () =>{
