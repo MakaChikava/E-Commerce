@@ -37,6 +37,8 @@ const Login = () => {
                     duration: 2000,
                     position: 'bottom-right',
                 })
+                localStorage.setItem('user', username)
+                window.location.replace('/')
             })
     }
 

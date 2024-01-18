@@ -2,11 +2,20 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotals } from "../redux/cartSlice";
+import axios from "axios";
+import { removeToken } from "../redux/authSlice";
 
 const Navbar = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
     const cart = useSelector((state)=> state.cart)
+    const token = localStorage.getItem("token")
     const dispatch = useDispatch()
+
+    const handleLogout = () =>{
+        dispatch(removeToken())
+        window.location.replace('/')
+    }
+
     useEffect(()=>{
         dispatch(getTotals())
     }, [cart])
@@ -46,8 +55,11 @@ const Navbar = () => {
                         </div>
                     </div>
                 </Link>
+                {isAuthenticated ?
+                        <h1> Hi {localStorage.getItem('user')}!</h1> : ""
+                }
                 {isAuthenticated ? 
-                    <button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Logout</button> : 
+                    <button onClick={()=> handleLogout()} className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Logout</button> : 
                     <Link to='/signup'><button className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Login / Signup</button></Link>
                 }
                 
