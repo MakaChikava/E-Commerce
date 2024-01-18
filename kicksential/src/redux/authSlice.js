@@ -22,8 +22,8 @@ const authSlice = createSlice({
             state.auth_token = ''
             state.isAuthenticated = false
 
-            localStorage.removeItem('token')
-            localStorage.removeItem('isAuthenticated')
+            localStorage.setItem('token', state.auth_token)
+            localStorage.setItem('isAuthenticated', state.isAuthenticated)
         }
     }
 
