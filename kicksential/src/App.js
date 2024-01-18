@@ -164,7 +164,7 @@ const UpdateFavorite = (product) =>{
             
           
         }})
-        .catch((error)=>{
+        .catch(()=>{
           alert('Favoriting products are for logged in users only')
         })
 }
@@ -222,10 +222,20 @@ const UpdateFavorite = (product) =>{
             name='query'
             onChange={handleSearch}
             onk
-            className='flex w-1/3 rounded-md p-2 bg-gray-50 border border-[3px] border-solid border-gray-150'
+            className='flex w-1/3 rounded-md p-2 bg-gray-50 border-[3px] border-solid border-gray-150'
             placeholder='Search shoes'/>
 
-            <button onClick={getQuery}>search</button>
+            <button className=' bg-black rounded-xl w-fit pl-3 pr-3 text-white font-medium' onClick={getQuery}>
+            <svg 
+            fill="#ffffff" 
+            className='h-[17px] w-[20px]'
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 490.4 490.4"
+            >
+              <title>search</title>
+                <path d="M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z"></path> 
+            </svg>
+            </button>
         </div>       
 
 {/* -------START OF A PRODUCT CONTAINER----------- */}
@@ -254,7 +264,7 @@ const UpdateFavorite = (product) =>{
 
               <svg 
                 aria-hidden="true" 
-                className='w-[24px h-[24px] cursor-pointer'
+                className='w-[24px] h-[24px] cursor-pointer'
                 focusable="false" 
                 viewBox="0 0 24 24" 
                 role="img" 
