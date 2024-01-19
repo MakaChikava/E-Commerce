@@ -36,11 +36,11 @@ const Cart = () => {
         <div className="flex">
             <div className="flex flex-col h-screen w-3/4">
                 <div className="flex justify-center">
-                    <h1 className="font-bold text-3xl">Shopping cart</h1> {/* Put on navbar */}
+                    <h1 className="font-bold text-3xl">Cart</h1> {/* Put on navbar */}
                 </div>
 
                 {cartItems.length === 0?(
-                        <p>there are no items</p>
+                        <p className=" m-8 text-xl font-semibold">There are no items</p>
                     ):(
                     <>
                     {/* CART ITEMS CONTAINER */}
@@ -99,7 +99,7 @@ const Cart = () => {
         </div>
         
         {/* summary section */}
-            <div className="flex flex-col w-1/4 bg-gray-100">
+            <div className="flex flex-col w-1/4 bg-gray-100 sticky">
                 <div className="flex">
                     <h1 className="font-bold text-2xl p-4">Summary</h1>
                 </div>
@@ -127,7 +127,7 @@ const Cart = () => {
                 
 
                 <div className="flex w-full">
-                    <button className="flex justify-center bg-black text-white text-xl font-md rounded-full h-fit w-full p-5">Checkout</button>
+                    <button className="flex justify-center bg-black text-white text-xl font-md rounded-full h-fit w-full p-5">Purchase</button>
                 </div>
 
             </div>
