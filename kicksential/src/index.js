@@ -6,6 +6,7 @@ import Cart from './cart';
 import Favorites from './favorites';
 import SignUp from './signup'
 import Login from './login'
+import Success from './success';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { getTotals } from './redux/cartSlice';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
+  },
+  {
+    path: "/success",
+    element: <Success/>
   }
 ]);
 

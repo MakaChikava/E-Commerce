@@ -74,6 +74,8 @@ const Login = () => {
                     )}
 
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
+
+                    <p className="flex mt-3">Don't have an account? <Link to="/signup" className="text-blue-500 ml-1">Signup</Link></p>
                     
                 </div>
             </div>
