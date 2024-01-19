@@ -23,7 +23,7 @@ const Navbar = () => {
                 <Link to='/'>
                 <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
                 </Link>
-                <div className="flex w-[300px] items-center justify-around">
+                <div className="flex w-[320px] items-center justify-around">
                 <Link to='/favorites'>
                     <svg 
                         aria-label="Like" 
@@ -54,7 +54,7 @@ const Navbar = () => {
                     </div>
                 </Link>
                 {isAuthenticated ?
-                        <h1> Hi {localStorage.getItem('user')}!</h1> : <></>
+                        <h1 className=" font-medium"> Hi {localStorage.getItem('user')}!</h1> : <></>
                 }
                 {isAuthenticated ? 
                     <button onClick={()=> handleLogout()} className="flex h-2/3 items-center bg-black hover:bg-neutral-600 duration-500 text-white rounded-full m-3 p-2 pl-4 pr-4">Logout</button> : 
