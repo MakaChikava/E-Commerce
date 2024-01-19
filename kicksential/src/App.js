@@ -7,6 +7,7 @@ import { addToCart } from './redux/cartSlice';
 import './App.css';
 
 function App() {
+
   const [products, setProducts] = useState([])
   const [query, setQuery] = useState('')
   const [isAuthenticated] = useState(JSON.parse(localStorage.getItem("isAuthenticated")))
