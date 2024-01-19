@@ -18,7 +18,7 @@ const Navbar = () => {
         dispatch(getTotals())
     }, [cart])
     return (
-        <header className="bg-gray-200 fixed top-0 w-full shadow-md">
+        <header className="bg-gray-200 fixed top-0 w-full shadow-md z-10">
             <nav className="flex justify-between">
                 <Link to='/'>
                 <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
