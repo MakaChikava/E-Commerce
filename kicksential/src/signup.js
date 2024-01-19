@@ -7,7 +7,8 @@ const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
-    const [error, setError] = useState('')
+    const [error, setError] = useState([])
+    const [error2, setError2] = useState('')
 
     const handleUsername = (e) =>{
         setUsername(e.target.value)
@@ -25,58 +26,88 @@ const SignUp = () => {
 
     const handleSubmit = () =>{
         if(password === password2){
-
+            setError2('')
             const signUpData = {
                 username: username,
                 password: password
             }
             axios
                 .post('http://127.0.0.1:8000/api/v1/users/', signUpData)
-                .then((res)=>{
+                .then(()=>{
+                    window.location.replace('/login')
+                })
+                .catch((err)=>{
+                    setError(err.response.data)
+                    console.log(err.response.data)
+
                     toast({
-                        message: ' Acount created, please log in!',
-                        type: 'is-success',
+                        message: `${error.password || error.username}`,
+                        type: 'error',
                         dismissable: true,
                         pauseOnHover: true,
                         duration: 2000,
                         position: 'bottom-right',
                     })
-                    window.location.replace('/login')
-                })
-                .catch((error)=>{
-                    setError(error.response.data.password)
                 })
 
         } else{
-            console.log("Passwords don't match")
-            setError("Passwords don't match")
+            setError2("Passwords don't match")
+            toast({
+                message: "Passwords don't match",
+                type: 'is-error',
+                dismissable: true,
+                pauseOnHover: true,
+                duration: 2000,
+                position: 'bottom-right',
+                style: {
+                    backgroundColor: 'red',
+                    color: 'black'
+                }
+            })
+            console.log(error2)
+
         }
         
     }
 
     return (
-        <div>
+        <div className="flex flex-col h-screen justify-center">
             <h1 className="flex justify-center items-center text-neutral-600 text-4xl font-bold duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
-            <div className="w-full h-screen flex justify-center items-center">
-                <div className="flex flex-col w-fit">
+            <div className="w-full h-3/6 flex justify-center">
+                <div className="flex flex-col h-[300px] w-1/3 items-center">
                     <form>
                         <input onChange={(e)=>{
                             handleUsername(e)
-                        }} type="text" placeholder="username" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
-                        }} type="text" placeholder="password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword2(e)
-                        }} type="text" placeholder="confirm password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="confirm password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                     </form>
 
-                    <div className="bg-red-500">
-                        <p>{error}</p>
-                    </div>
 
-                    <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Signup</button>
-                    <p className="flex w-fit">already have an account?<Link to='/login' className="text-blue-500">login</Link></p>
+                    {error.password || error.username ? 
+                    (
+                        <div className="flex justify-center bg-red-300 m-3 p-3 rounded">
+                            <p className="flex">{error.password || error.username}</p>
+                        </div>
+                    ) : 
+                    (
+                        <p className="hidden">.</p>
+                    )}
+
+                {error2  ? 
+                    <div className="flex justify-center bg-red-300 m-3 p-3 rounded">
+                        <p className="flex">{error2}</p>
+                    </div>
+                    :
+                    <p className="hidden">.</p> 
+                }
+
+                    <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 mb-2 justify-center">Signup</button>
+                    <p className="flex">already have an account?<Link to='/login' className="text-blue-500">login</Link></p>
                 </div>
             </div>
         </div>
