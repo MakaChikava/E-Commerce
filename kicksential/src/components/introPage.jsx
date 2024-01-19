@@ -1,29 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from "./Navbar";
+import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
 import Jordan1 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/Jordan1poster.webp";
 import Jordan4 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/jordan4.jpeg";
 import Yeezy from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/yeezy.png";
 import Dunk from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/nikedunks.jpeg";
 import Adidas from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/adidas.jpeg";
-import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
+
 const Intro = () => {
     
     const slides = [
-        {
-            url: Jordan4
-        },
-        {
-            url: Adidas
-        },
-        {
-            url: Yeezy
-        },
-        {
-            url: Jordan1
-        },
-        {
-            url: Dunk
-        }
+        {url: Jordan4},
+        {url: Adidas},
+        {url: Yeezy},
+        {url: Jordan1},
+        {url: Dunk}
     ];
     
     const [currIndex, setCurrIndex] = useState(0);
@@ -39,6 +30,15 @@ const Intro = () => {
         setCurrIndex(newIndex)
     };
 
+    useEffect(() => {
+        // Automatically change slide every 5 seconds
+        const intervalId = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    
+        // Clean up the interval when the component unmounts
+        return () => clearInterval(intervalId);
+      }, [currIndex]); // Run the effect whenever currIndex changes
 
     return (
         <section className="flex flex-col h-screen">
