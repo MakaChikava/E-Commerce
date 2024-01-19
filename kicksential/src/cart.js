@@ -1,7 +1,7 @@
 
 import Navbar from "./components/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, decreaseCart, getTotals, removeFromCart } from "./redux/cartSlice";
+import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "./redux/cartSlice";
 import { useEffect } from "react";
 
 const Cart = () => {
@@ -24,6 +24,12 @@ const Cart = () => {
     const decreaseQuantity = (product)=>{
         dispatch(decreaseCart(product))
     }
+
+    const handlePurchase = () =>{
+        dispatch(clearCart())
+        window.location.replace('/success')
+    }
+
     return (
         <>
         <div className="flex flex-col h-screen">
@@ -127,7 +133,9 @@ const Cart = () => {
                 
 
                 <div className="flex w-full">
-                    <button className="flex justify-center bg-black text-white text-xl font-md rounded-full h-fit w-full p-5">Purchase</button>
+                    <button
+                    onClick={() => handlePurchase()}
+                    className="flex justify-center bg-black text-white text-xl font-md rounded-full h-fit w-full p-5">Purchase</button>
                 </div>
 
             </div>
