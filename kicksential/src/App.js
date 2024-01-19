@@ -239,7 +239,7 @@ const UpdateFavorite = (product) =>{
         </div>       
 
 {/* -------START OF A PRODUCT CONTAINER----------- */}
-        <div className='flex flex-row flex-wrap justify-center items-center justify-around w-full h-full'>
+        <div className='flex flex-row flex-wrap justify-center items-center  w-full h-full'>
           {products.map((product)=>{
             return(
             

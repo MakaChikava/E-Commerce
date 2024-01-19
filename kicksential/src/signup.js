@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from 'bulma-toast'
 
 const SignUp = () => {
     const [username, setUsername] = useState('')
@@ -39,33 +38,10 @@ const SignUp = () => {
                 .catch((err)=>{
                     setError(err.response.data)
                     console.log(err.response.data)
-
-                    toast({
-                        message: `${error.password || error.username}`,
-                        type: 'error',
-                        dismissable: true,
-                        pauseOnHover: true,
-                        duration: 2000,
-                        position: 'bottom-right',
-                    })
                 })
 
         } else{
             setError2("Passwords don't match")
-            toast({
-                message: "Passwords don't match",
-                type: 'is-error',
-                dismissable: true,
-                pauseOnHover: true,
-                duration: 2000,
-                position: 'bottom-right',
-                style: {
-                    backgroundColor: 'red',
-                    color: 'black'
-                }
-            })
-            console.log(error2)
-
         }
         
     }
@@ -78,13 +54,13 @@ const SignUp = () => {
                     <form>
                         <input onChange={(e)=>{
                             handleUsername(e)
-                        }} type="text" placeholder="username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="Username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
-                        }} type="text" placeholder="password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword2(e)
-                        }} type="text" placeholder="confirm password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="Confirm Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                     </form>
 
 
@@ -107,7 +83,7 @@ const SignUp = () => {
                 }
 
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 mb-2 justify-center">Signup</button>
-                    <p className="flex">already have an account?<Link to='/login' className="text-blue-500">login</Link></p>
+                    <p className="flex">Already have an account?<Link to='/login' className="text-blue-500 ml-1">Login</Link></p>
                 </div>
             </div>
         </div>

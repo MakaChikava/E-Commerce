@@ -8,6 +8,7 @@ import { setToken } from "./redux/authSlice";
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState([''])
     const dispatch = useDispatch()
 
 
@@ -41,7 +42,7 @@ const Login = () => {
                 window.location.replace('/')
             })
             .catch((error)=>{
-                console.log(error.response.data.non_field_errors)
+                setError(error.response.data)
             })
     }
 
@@ -56,11 +57,22 @@ const Login = () => {
                     <form>
                         <input onChange={(e)=>{
                             handleUsername(e)
-                        }} type="text" placeholder="username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="Username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
                         }} type="Password" placeholder="Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                     </form>
+
+                    {error.non_field_errors ? 
+                    (
+                        <div className="flex justify-center bg-red-300 m-3 p-3 rounded">
+                            <p className="flex">The username or password you entered is incorrect.</p>
+                        </div>
+                    ) : 
+                    (
+                        <p className="hidden">.</p>
+                    )}
+
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
                     
                 </div>
