@@ -72,7 +72,7 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col h-screen justify-center">
-            <h1 className="flex justify-center items-center text-neutral-600 text-4xl font-bold duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+            <Link to='/'><h1 className="flex justify-center items-center text-black  hover:text-neutral-600 duration-500 text-4xl font-bold m-3 p-2 cursor-pointer">KICKSENTIAL.</h1></Link>
             <div className="w-full h-3/6 flex justify-center">
                 <div className="flex flex-col h-[300px] w-1/3 items-center">
                     <form>

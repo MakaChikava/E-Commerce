@@ -47,19 +47,19 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className="flex flex-col h-screen justify-center">
             <Link to={'/'}>
-                <h1 className="flex justify-center items-center text-neutral-600 text-4xl font-bold duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+                <h1 className="flex justify-center items-center text-black  hover:text-neutral-600 duration-500 text-4xl font-bold m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
             </Link>
-            <div className="w-full h-screen flex justify-center items-center flex-col">
-                <div className="flex flex-col w-fit">
+            <div className="w-full h-3/6 flex justify-center">
+                <div className="flex flex-col h-[300px] w-1/3 items-center">
                     <form>
                         <input onChange={(e)=>{
                             handleUsername(e)
-                        }} type="text" placeholder="username" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="text" placeholder="username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
-                        }} type="Password" placeholder="Password" className="flex border-2 p-2 border-black rounded-lg w-56"/>
+                        }} type="Password" placeholder="Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                     </form>
                     <button onClick={handleSubmit} className="flex w-56 text-white bg-black rounded-xl p-2 justify-center">Login</button>
                     
