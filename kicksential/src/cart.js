@@ -26,8 +26,8 @@ const Cart = () => {
     }
 
     const handlePurchase = () =>{
-        dispatch(clearCart())
         window.location.replace('/success')
+        dispatch(clearCart())
     }
 
     return (

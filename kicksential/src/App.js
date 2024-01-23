@@ -151,7 +151,7 @@ const UpdateFavorite = (product) =>{
         })
         .then(() => {
           // Make sure that if you are in another category and make a new favorite the page wont kick you out back to the all category
-          if (products.length === 31){ // need to find a better way to compare than a set number
+          if (products.length === 51){ // need to find a better way to compare than a set number
             getAllProducts()
           }else{
             const parts = product.get_absolute_url.split('/')

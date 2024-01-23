@@ -57,10 +57,10 @@ const SignUp = () => {
                         }} type="text" placeholder="Username" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword(e)
-                        }} type="text" placeholder="Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="Password" placeholder="Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                         <input onChange={(e)=>{
                             handlePassword2(e)
-                        }} type="text" placeholder="Confirm Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
+                        }} type="Password" placeholder="Confirm Password" className="flex border-2 p-2 mb-3 border-black rounded-lg w-56"/>
                     </form>
 
 
