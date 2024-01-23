@@ -21,7 +21,7 @@ const Navbar = () => {
         <header className="bg-gray-200 fixed top-0 w-full shadow-md z-10">
             <nav className="flex justify-between">
                 <Link to='/'>
-                <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL.</h1>
+                <h1 className="text-black text-4xl font-bold hover:text-neutral-600 duration-500 m-3 p-2 cursor-pointer">KICKSENTIAL..</h1>
                 </Link>
                 <div className="flex w-[320px] items-center justify-around">
                 <Link to='/favorites'>
