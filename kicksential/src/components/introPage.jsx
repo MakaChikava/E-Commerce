@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import Navbar from "./Navbar";
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
-import Jordan1 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/Jordan1poster.webp";
-import Jordan4 from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/jordan4.jpeg";
-import Yeezy from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/yeezy.png";
-import Dunk from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/nikedunks.jpeg";
-import Adidas from "/Users/maka/personal_projects/E-Commerce/kicksential/src/imgs/adidas.jpeg";
+import Jordan1 from "./imgs/Jordan1poster.webp";
+import Jordan4 from "./imgs/jordan4.jpeg";
+import Yeezy from "./imgs/yeezy.png";
+import Dunk from "./imgs/nikedunks.jpeg";
+import Adidas from "./imgs/adidas.jpeg";
 
 const Intro = () => {
     
