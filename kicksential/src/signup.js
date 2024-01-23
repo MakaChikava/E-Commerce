@@ -31,7 +31,7 @@ const SignUp = () => {
                 password: password
             }
             axios
-                .post('http://127.0.0.1:8000/api/v1/users/', signUpData)
+                .post('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/users/', signUpData)
                 .then(()=>{
                     window.location.replace('/login')
                 })

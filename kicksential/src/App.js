@@ -15,7 +15,7 @@ function App() {
 // --------------------GET API CALLS, CATEGORIES-------------------------- //
   const getAllProducts = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/all-products/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/all-products/')
         .then(res => {
           setProducts(res.data)
           console.log(res.data)
@@ -24,7 +24,7 @@ function App() {
 
   const getTypeLifestyle = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/products/lifestyle/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/lifestyle/')
         .then(res =>{
         setProducts(res.data.products)
         console.log(res.data.products)
@@ -33,7 +33,7 @@ function App() {
 
   const getTypeRunning = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/products/running/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/running/')
         .then(res =>{
         setProducts(res.data.products)
         console.log(res.data.products)
@@ -42,7 +42,7 @@ function App() {
 
 const getTypeSoccer = () =>{
   axios
-      .get('http://127.0.0.1:8000/api/v1/products/soccer/')
+      .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/soccer/')
       .then(res =>{
       setProducts(res.data.products)
       console.log(res.data.products)
@@ -51,7 +51,7 @@ const getTypeSoccer = () =>{
 
 const getTypeBasketball = () =>{
   axios
-      .get('http://127.0.0.1:8000/api/v1/products/basketball/')
+      .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/basketball/')
       .then(res =>{
       setProducts(res.data.products)
       console.log(res.data.products)
@@ -60,7 +60,7 @@ const getTypeBasketball = () =>{
 
 const getTypeFootball = () =>{
   axios
-      .get('http://127.0.0.1:8000/api/v1/products/football/')
+      .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/football/')
       .then(res =>{
       setProducts(res.data.products)
       console.log(res.data.products)
@@ -70,52 +70,52 @@ const getTypeFootball = () =>{
 // -------------------- GET COLORS ------------------------//
   const getColorGreen = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/green/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/green/')
         .then((res)=>{
           setProducts(res.data)
         })}
   const getColorPink = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/pink/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/pink/')
         .then((res)=>{
           setProducts(res.data)
         })}
   const getColorRed = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/red/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/red/')
         .then((res)=>{
           setProducts(res.data)
         })}
   const getColorYellow = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/yellow/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/yellow/')
         .then((res)=>{
           setProducts(res.data)
         })}
   const getColorBlue = () =>{
     axios
-        .get('http://127.0.0.1:8000/api/v1/blue/')
+        .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/blue/')
         .then((res)=>{
           setProducts(res.data)
         })}
   
     const getColorGrey = () =>{
       axios
-          .get('http://127.0.0.1:8000/api/v1/grey/')
+          .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/grey/')
           .then((res)=>{
             setProducts(res.data)
           })}
 
     const getColorWhite = () =>{
       axios
-          .get('http://127.0.0.1:8000/api/v1/white/')
+          .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/white/')
           .then((res)=>{
             setProducts(res.data)
           })}
 
     const getColorBlack = () =>{
       axios
-          .get('http://127.0.0.1:8000/api/v1/black/')
+          .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/black/')
           .then((res)=>{
             setProducts(res.data)
           })}
@@ -133,7 +133,7 @@ const handleAddToCart = (product) =>{
 const UpdateFavorite = (product) =>{
   console.log(token)
     axios
-        .put(`http://127.0.0.1:8000/api/v1/product/${product.id}`, 
+        .put(`https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/product/${product.id}`, 
         {
           category: product.category,
           name: product.name,
@@ -157,7 +157,7 @@ const UpdateFavorite = (product) =>{
             const parts = product.get_absolute_url.split('/')
             let url = `/${parts[1]}/`
               axios
-                  .get(`http://127.0.0.1:8000/api/v1/products${url}`)
+                  .get(`https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products${url}`)
                   .then(res => {
                       setProducts(res.data.products)
                       console.log(res.data.products)
@@ -179,7 +179,7 @@ const UpdateFavorite = (product) =>{
 
   const getQuery = async () =>{
     await axios
-              .post('http://127.0.0.1:8000/api/v1/products/search/', {'query' : `${query}`})
+              .post('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/products/search/', {'query' : `${query}`})
               .then((res)=>{
                 console.log(res.data)
                 setProducts(res.data)

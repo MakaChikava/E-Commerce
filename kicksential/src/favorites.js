@@ -8,7 +8,7 @@ const Favorites = () => {
 
     const getFavorites = () =>{
         axios
-            .get('http://127.0.0.1:8000/api/v1/favorites/')
+            .get('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/favorites/')
             .then(res => {
                 setFavorites(res.data)
                 console.log(res.data)
@@ -20,7 +20,7 @@ const Favorites = () => {
 const UpdateFavorite = (product) =>{
     console.log(product.id)
     axios
-        .put(`http://127.0.0.1:8000/api/v1/product/${product.id}`, 
+        .put(`https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/product/${product.id}`, 
         {
             category: product.category,
             name: product.name,

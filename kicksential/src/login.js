@@ -26,7 +26,7 @@ const Login = () => {
             username: username
         }
         axios
-            .post('http://127.0.0.1:8000/api/v1/token/login/', loginData)
+            .post('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/token/login/', loginData)
             .then((res)=>{
                 const token = res.data.auth_token
                 dispatch(setToken(token))
