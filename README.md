@@ -1,6 +1,6 @@
 # Kicksential.
 
-Kicksential is a e-commerce web application for discovering and purchasing the latest trending shoes. This app allows you to browse through a catalogue of different sneakers, when logged in; favorite sneakerst that caught your eye, add to cart the ones you would like to buy.
+Kicksential is a e-commerce web application for discovering and purchasing the latest trending shoes. This application allows you to browse through a catalogue of different sneakers, favorite sneakers that caught your eye, add to cart and purchase the sneakers you like.
 
 ---
 ## User should be able to:
