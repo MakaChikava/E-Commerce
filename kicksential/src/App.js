@@ -143,7 +143,7 @@ const UpdateFavorite = (product) =>{
           color: product.color,
           price: product.price,
           favorite: !product.favorite,
-          get_image: product.get_image
+          image: product.image
         }, {
           headers: {
             'Authorization' : `Token ${token}`
@@ -247,7 +247,7 @@ const UpdateFavorite = (product) =>{
           
           <div key={product.id} className='flex flex-col p-8'>
             <img
-            src={product.get_image}
+            src={product.image}
             className='h-[300px] w-[300px]'
             alt='shoe'
             />

@@ -30,7 +30,7 @@ const UpdateFavorite = (product) =>{
             color: product.color,
             price: product.price,
             favorite: !product.favorite,
-            get_image: product.get_image
+            image: product.image
         })
         .then(() => {
             getFavorites()
@@ -54,7 +54,7 @@ const UpdateFavorite = (product) =>{
         
         <div key={favorite.id} className='flex flex-col p-8'>
             <img 
-            src={favorite.get_image}
+            src={favorite.image}
             className='h-[300px] w-[300px]'
             alt='shoe'
             />

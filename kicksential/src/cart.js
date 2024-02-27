@@ -58,7 +58,7 @@ const Cart = () => {
                                 {/* image and name container*/}
                                 <div className="flex justify-between w-[250px]">
                                     <div className="flex">
-                                        <img src={cartItem.get_image} className="h-[100px] w-[100px]"/>
+                                        <img src={cartItem.image} className="h-[100px] w-[100px]"/>
                                     </div>
                                     <div className="flex w-[150px]">
                                         <h3 className="ml-1">{cartItem.name}</h3>
