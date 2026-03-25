@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import Navbar from "./Navbar";
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
 import Jordan1 from "./imgs/Jordan1poster.webp";
@@ -19,11 +19,11 @@ const Intro = () => {
     
     const [currIndex, setCurrIndex] = useState(0);
 
-    const nextSlide = () =>{
+    const nextSlide = useCallback(() =>{
         const isLastSlide = currIndex === slides.length - 1;
         const newIndex = isLastSlide ? 0 : currIndex + 1;
         setCurrIndex(newIndex)
-    }
+    }, [currIndex, slides.length])
     const prevSlide = () =>{
         const isFirstSlide = currIndex === 0;
         const newIndex = isFirstSlide ? slides.length -1 : currIndex - 1;
@@ -35,10 +35,10 @@ const Intro = () => {
         const intervalId = setInterval(() => {
             nextSlide();
         }, 5000);
-    
+
         // Clean up the interval when the component unmounts
         return () => clearInterval(intervalId);
-      }, [currIndex]); // Run the effect whenever currIndex changes
+      }, [nextSlide]); // Run the effect whenever nextSlide changes
 
     return (
         <section className="flex flex-col h-screen">

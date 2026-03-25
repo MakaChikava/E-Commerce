@@ -16,7 +16,7 @@ const Navbar = () => {
 
     useEffect(()=>{
         dispatch(getTotals())
-    }, [cart])
+    }, [cart, dispatch])
     return (
         <header className="bg-gray-200 fixed top-0 w-full shadow-md z-10">
             <nav className="flex justify-between">
