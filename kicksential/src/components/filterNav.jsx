@@ -2,7 +2,7 @@
 const filter = (props) => {    
 
     return (
-        <div className="bg-gray-100 flex flex-col h-screen w-[250px] sticky top-20 z-0">
+        <div className="bg-gray-100 flex flex-col h-screen w-[250px] mt-8 sticky top-20 z-0">
             <h1 className="flex justify-center text-4xl mb-5 p-2">Filter</h1>
             
                 <h1 className="flex ml-2 mb-2 divide-x font-bold text-lg text-gray-700">TYPE</h1>
