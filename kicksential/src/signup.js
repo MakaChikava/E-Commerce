@@ -31,7 +31,7 @@ const SignUp = () => {
                 password: password
             }
             axios
-                .post('https://kicksentialbk-b4da2791ed28.herokuapp.com/api/v1/users/', signUpData)
+                .post('https://kicksential-backend.vercel.app/api/v1/users/', signUpData)
                 .then(()=>{
                     window.location.replace('/login')
                 })
